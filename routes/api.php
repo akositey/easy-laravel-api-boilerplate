@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 //IMPORTANT NOTE: apply middleware in production
 // Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
-Route::patch('references/employees/{employee}/restore', 'Api\References\EmployeeController@restore')->name('employees.restore');
-Route::apiResource('references/employees', 'Api\References\EmployeeController');
+Route::patch('employees/{employee}/restore', 'Api\EmployeeController@restore')->name('employees.restore');
+Route::apiResource('employees', 'Api\EmployeeController');
 // });
 
 //Auth Routes

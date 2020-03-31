@@ -17,8 +17,8 @@ after installing composer packages and .env file, generate a JWT_SECRET using `p
    - If you use SoftDeletes, also add a route for `restore` method
 5. Check `php artisan route:list` for api endpoints
    
-### Production
-make sure routes in `routes/api.php` have `auth:api` middleware 
+### Routes
+make sure routes in `routes/api.php` have `auth:api` middleware
   
 ## To Do
 - user roles & permissions? / authorization
