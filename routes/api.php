@@ -14,17 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
-//NOTE: apply middleware after testing
-Route::patch('references/debtors/{debtor}/restore', 'Api\References\DebtorController@restore')->name('debtors.restore');
-Route::apiResource('references/debtors', 'Api\References\DebtorController');
-
+//IMPORTANT NOTE: apply middleware in production
+// Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
 Route::patch('references/employees/{employee}/restore', 'Api\References\EmployeeController@restore')->name('employees.restore');
 Route::apiResource('references/employees', 'Api\References\EmployeeController');
+// });
 
+//Auth Routes
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('authenticate', 'AuthController@authenticate')->name('api.authenticate');
     Route::post('register', 'AuthController@register')->name('api.register');
