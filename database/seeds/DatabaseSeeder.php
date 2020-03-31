@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
 
         if (App::environment('local', 'testing', 'staging')) {
-            factory(Debtor::class, 100)->create();
             factory(Employee::class, 1000)->create();
         }
     }
