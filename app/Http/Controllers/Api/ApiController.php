@@ -104,6 +104,7 @@ class ApiController extends Controller
     public function restore($id)
     {
         $this->entity::onlyTrashed()->where('id', $id)->restore();
-        return response()->json([], 200);
+        $restoredRecord = $this->entity::findOrFail($id);
+        return response()->json($restoredRecord, 200);
     }
 }
